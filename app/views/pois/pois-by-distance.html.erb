@@ -1,0 +1,28 @@
+<%= form_for(@poivalidator, :url =>{ :action => "by_distance_show" }, method: "get") do %>
+    <% if @poivalidator.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@poivalidator.errors.count, "error") %> prohibited
+            </h2>
+        </div>
+        <ul>
+            <% @poivalidator.errors.full_messages. each do |msg|%>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    
+    <p>
+        <%= label_tag(:max_dist, "Distância Máxima: ")%>
+        <%= text_field_tag(:max_dist) %>
+    </p>
+    <p>
+        <%= label_tag(:x, "X: ")%>
+        <%= text_field_tag(:x) %>
+    </p>
+    <p>
+        <%= label_tag(:y, "Y: ")%>
+        <%= text_field_tag(:y) %>
+    </p>
+    <%= submit_tag("Search") %>
+<% end %>

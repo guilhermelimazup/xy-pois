@@ -1,0 +1,14 @@
+<p>
+    <strong>Name: </strong>
+    <%= @poi.name %>
+</p>
+<p>
+    <strong>X: </strong>
+    <%= @poi.x %>
+</p>
+<p>
+    <strong>Y: </strong>
+    <%= @poi.y %>
+</p>
+<%= link_to 'Back to Index', pois_path %>
+<%= link_to 'New POI', new_poi_path %>

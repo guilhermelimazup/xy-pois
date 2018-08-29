@@ -1,0 +1,32 @@
+<h1>New POI</h1>
+
+<%= form_with scope: :poi, url: pois_path, 
+local: true do |form| %>
+    <% if @poi.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@poi.errors.count, "error") %> prohibited
+            </h2>
+        </div>
+        <ul>
+            <% @poi.errors.full_messages. each do |msg|%>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <p>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </p>
+    <p>
+        <%= form.label :x %>
+        <%= form.number_field :x %>
+    </p>
+    <p>
+        <%= form.label :y %>
+        <%= form.number_field :y %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>

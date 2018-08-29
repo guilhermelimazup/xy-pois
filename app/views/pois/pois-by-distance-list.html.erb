@@ -1,0 +1,18 @@
+<h1>Listing all POIs in the range</h1>
+<p>
+    <%= link_to "Back", pois_path %> | 
+    <%= link_to "Another search", by_distance_search_pois_path %>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>X</th>
+        <th>Y</th>
+    </tr>
+    <% @elected_pois.each do |poi|%>
+        <tr>
+            <td><%= poi.name %></td>
+            <td><%= poi.x %></td>
+            <td><%= poi.y %></td>
+        </tr>
+    <% end %>
+</table>

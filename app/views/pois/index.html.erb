@@ -1,0 +1,23 @@
+<h1>Listing all points of interest</h1>
+<p>
+    <%= link_to "New POI", new_poi_path %> | 
+    <%= link_to "Nearby POIs by distance", by_distance_search_pois_path %>
+</P>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>X</th>
+        <th>Y</th>
+    </tr>
+    <% @pois. each do |poi|%>
+        <tr>
+            <td><%= poi.name %></td>
+            <td><%= poi.x %></td>
+            <td><%= poi.y %></td>
+            <td><%= link_to 'Show', poi_path(poi) %> | </td>
+            <td><%= link_to 'Destroy', poi_path(poi), 
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' }%></td>
+        </tr>
+    <% end %>
+</table>
